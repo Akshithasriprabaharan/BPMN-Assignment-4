@@ -111,5 +111,3 @@ Credit timeout (TC4b): incident at the REST task; fix by choosing a non-SLOW app
 | 4b | SLOW9001, same | Credit read timeout → retries → incident | Incident at REST task | | |
 | 5 | A9999 with fault injection on | Worker incident → fix → retry → rule 4 | Approved after recovery | | |
 
-## 9. Screenshot checklist
-Tasklist: start form; manual-review task list; completed review. Operate: process diagram with token counts; instance variables; TC4b/TC5 incident panel; same instance after retry. Save into `screenshots/`.

@@ -1,0 +1,39 @@
+{
+  "components": [
+    {
+      "type": "text",
+      "id": "t1",
+      "text": "### Manual review\n**Applicant:** {{applicantName}} ({{applicantId}})\n\n**Loan amount:** {{loanAmount}} | **Monthly income:** {{monthlyIncome}}\n\n**Credit score:** {{creditAssessment.creditScore}} | **Risk:** {{creditAssessment.riskLevel}}\n\n**DTI %:** {{debtToIncomeRatio}} | **Loan/annual income:** {{loanToAnnualIncome}}\n\n**DMN reason:** {{decisionResult.reason}}"
+    },
+    {
+      "label": "Reviewer decision",
+      "type": "radio",
+      "key": "reviewerDecision",
+      "id": "c_reviewerDecision",
+      "values": [
+        {
+          "label": "Approve",
+          "value": "Approve"
+        },
+        {
+          "label": "Reject",
+          "value": "Reject"
+        }
+      ],
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Reviewer comments",
+      "type": "textarea",
+      "key": "reviewerComments",
+      "id": "c_reviewerComments"
+    }
+  ],
+  "type": "default",
+  "id": "manual-review-form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "schemaVersion": 16
+}

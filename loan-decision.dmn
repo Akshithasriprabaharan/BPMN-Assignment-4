@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_LoanDecision" name="Loan Decision" namespace="http://camunda.org/schema/1.0/dmn" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <decision id="loan_decision" name="Loan Decision">
+    <decisionTable id="DecisionTable_Loan" hitPolicy="FIRST">
+      <input id="In_Score" label="Credit score (300-900)">
+        <inputExpression id="InExpr_Score" typeRef="number"><text>creditAssessment.creditScore</text></inputExpression>
+      </input>
+      <input id="In_DTI" label="Debt-to-income ratio (%)">
+        <inputExpression id="InExpr_DTI" typeRef="number"><text>debtToIncomeRatio</text></inputExpression>
+      </input>
+      <input id="In_LTI" label="Loan / annual income (x)">
+        <inputExpression id="InExpr_LTI" typeRef="number"><text>loanToAnnualIncome</text></inputExpression>
+      </input>
+      <output id="Out_Decision" label="Decision" name="decision" typeRef="string" />
+      <output id="Out_Reason" label="Reason" name="reason" typeRef="string" />
+      <rule id="Rule_1">
+        <inputEntry id="R1_I0"><text>&lt; 550</text></inputEntry>
+        <inputEntry id="R1_I1"><text>-</text></inputEntry>
+        <inputEntry id="R1_I2"><text>-</text></inputEntry>
+        <outputEntry id="R1_O1"><text>"Rejected"</text></outputEntry>
+        <outputEntry id="R1_O2"><text>"Credit score below 550"</text></outputEntry>
+      </rule>
+      <rule id="Rule_2">
+        <inputEntry id="R2_I0"><text>-</text></inputEntry>
+        <inputEntry id="R2_I1"><text>&gt; 50</text></inputEntry>
+        <inputEntry id="R2_I2"><text>-</text></inputEntry>
+        <outputEntry id="R2_O1"><text>"Rejected"</text></outputEntry>
+        <outputEntry id="R2_O2"><text>"Debt-to-income ratio above 50%"</text></outputEntry>
+      </rule>
+      <rule id="Rule_3">
+        <inputEntry id="R3_I0"><text>-</text></inputEntry>
+        <inputEntry id="R3_I1"><text>-</text></inputEntry>
+        <inputEntry id="R3_I2"><text>&gt; 8</text></inputEntry>
+        <outputEntry id="R3_O1"><text>"Rejected"</text></outputEntry>
+        <outputEntry id="R3_O2"><text>"Loan exceeds 8x annual income"</text></outputEntry>
+      </rule>
+      <rule id="Rule_4">
+        <inputEntry id="R4_I0"><text>&gt;= 700</text></inputEntry>
+        <inputEntry id="R4_I1"><text>&lt;= 40</text></inputEntry>
+        <inputEntry id="R4_I2"><text>&lt;= 5</text></inputEntry>
+        <outputEntry id="R4_O1"><text>"Approved"</text></outputEntry>
+        <outputEntry id="R4_O2"><text>"Score 700 or more, DTI 40% or less, loan up to 5x annual income"</text></outputEntry>
+      </rule>
+      <rule id="Rule_5">
+        <inputEntry id="R5_I0"><text>-</text></inputEntry>
+        <inputEntry id="R5_I1"><text>-</text></inputEntry>
+        <inputEntry id="R5_I2"><text>-</text></inputEntry>
+        <outputEntry id="R5_O1"><text>"Manual Review"</text></outputEntry>
+        <outputEntry id="R5_O2"><text>"Borderline profile - needs underwriter review"</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_1">
+      <dmndi:DMNShape id="DMNShape_1" dmnElementRef="loan_decision"><dc:Bounds height="80" width="180" x="150" y="80" /></dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

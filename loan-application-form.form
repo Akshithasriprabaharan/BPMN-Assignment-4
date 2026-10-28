@@ -1,0 +1,101 @@
+{
+  "components": [
+    {
+      "label": "Applicant ID (e.g. A1001, B2001, C3001, ERR9001, SLOW9001, A9999)",
+      "type": "textfield",
+      "key": "applicantId",
+      "id": "c_applicantId",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Applicant name",
+      "type": "textfield",
+      "key": "applicantName",
+      "id": "c_applicantName",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Age",
+      "type": "number",
+      "key": "age",
+      "id": "c_age",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Employment status",
+      "type": "select",
+      "key": "employmentStatus",
+      "id": "c_employmentStatus",
+      "values": [
+        {
+          "label": "Salaried",
+          "value": "SALARIED"
+        },
+        {
+          "label": "Self-employed",
+          "value": "SELF_EMPLOYED"
+        },
+        {
+          "label": "Unemployed",
+          "value": "UNEMPLOYED"
+        }
+      ],
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Monthly income",
+      "type": "number",
+      "key": "monthlyIncome",
+      "id": "c_monthlyIncome",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Existing monthly debt payments",
+      "type": "number",
+      "key": "existingMonthlyDebt",
+      "id": "c_existingMonthlyDebt",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Requested loan amount",
+      "type": "number",
+      "key": "loanAmount",
+      "id": "c_loanAmount",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Loan term (months)",
+      "type": "number",
+      "key": "loanTermMonths",
+      "id": "c_loanTermMonths",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Loan purpose",
+      "type": "textfield",
+      "key": "loanPurpose",
+      "id": "c_loanPurpose"
+    }
+  ],
+  "type": "default",
+  "id": "loan-application-form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "schemaVersion": 16
+}
